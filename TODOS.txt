@@ -1,0 +1,7 @@
+DOING:
+
+TODO:
+- style titles
+
+DONE:
+- add font for web dev
