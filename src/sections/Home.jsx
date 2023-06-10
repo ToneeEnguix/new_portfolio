@@ -28,7 +28,7 @@ const WebDev = () => {
   const [color, setColor] = useState('#4a60ab')
 
   const compStyle = {
-    fontFamily: "'Alfa Slab One', sans-serif",
+    fontFamily: "'Staatliches', sans-serif",
     padding: '20% 20% 50px',
     fontSize: '1.5rem',
     color,
