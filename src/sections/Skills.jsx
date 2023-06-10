@@ -1,5 +1,9 @@
 /** @jsxImportSource @emotion/react */
+import { useLayoutEffect } from 'react'
 import Tilt from 'react-parallax-tilt'
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+gsap.registerPlugin(ScrollTrigger)
 
 import JavaScriptLogo from '../assets/imgs/logos/javaScript.png'
 import ReactLogo from '../assets/imgs/logos/react.png'
@@ -21,14 +25,15 @@ import GitLogo from '../assets/imgs/logos/git.png'
 import ReactRouterLogo from '../assets/imgs/logos/router.png'
 import StripeLogo from '../assets/imgs/logos/stripe.svg'
 import NodemailerLogo from '../assets/imgs/logos/nodemailer.png'
+import GSAPLogo from '../assets/imgs/logos/gsap.svg'
 
 export default function Skills() {
   return (
     <div css={pageStyle}>
       <h1 className='title'>Skills</h1>
       <div className='wrapper'>
-        {skills.map(({ name, logo }) => {
-          return <Skill key={name} name={name} logo={logo} />
+        {skills.map(({ name, logo }, i) => {
+          return <Skill key={name} name={name} logo={logo} i={i} />
         })}
       </div>
     </div>
@@ -49,7 +54,51 @@ const pageStyle = {
   },
 }
 
-const Skill = ({ name, logo }) => {
+const Skill = ({ name, logo, i }) => {
+  function randomIntFromInterval(min, max) {
+    // min and max included
+    return Math.floor(Math.random() * (max - min + 1) + min)
+  }
+
+  useLayoutEffect(() => {
+    const tilt = document.querySelector(`.tilt${i}`)
+    if (!tilt) return
+    //     gsap.to(tilt, {
+    //       scrollTrigger: tilt,
+    //       rotation: 360,
+    //       duration: 2,
+    //       ease: 'bounce.out',
+    //     })
+    let tl = gsap.timeline({
+      // yes, we can add it to an entire timeline!
+      scrollTrigger: {
+        trigger: tilt,
+        // start: 'top top', // when the top of the trigger hits the top of the viewport
+        end: '+=200', // end after scrolling 200px beyond the start
+        scrub: 1, // smooth scrubbing, takes 1 second to "catch up" to the scrollbar
+      },
+    })
+
+    // add animations and labels to the timeline
+    tl.from(tilt, {
+      opacity: 0,
+      y: randomIntFromInterval(200, 400),
+      x: randomIntFromInterval(-300, 300),
+      scale: 0.6,
+      rotation: 30,
+    }).to(tilt, {
+      y: 0,
+      scale: 1,
+      x: 0,
+      opacity: 1,
+      rotation: 0,
+    })
+
+    return () => {
+      tl.revert()
+    }
+  }, [])
+
   return (
     <div css={skillStyle} className='flexColumn'>
       <Tilt
@@ -59,10 +108,11 @@ const Skill = ({ name, logo }) => {
         glareEnable={true}
         glareMaxOpacity={0.45}
         transitionSpeed={2500}
-        glareColor='#4a60abb3'
+        glareColor='#cac0cbb3'
         glarePosition='all'
         glareBorderRadius='8px'
-        className='flexCenter tilt'
+        className={`flexCenter tilt tilt${i}`}
+        reset={true}
       >
         {/* {name} */}
         <img src={logo} alt={name} title={name} />
@@ -78,8 +128,8 @@ const skillStyle = {
     backgroundColor: '#efefefe3',
     margin: '2rem 0 1rem',
     padding: '2rem 0',
-    width: '80%',
-    height: '60%',
+    width: '100%',
+    height: '100%',
     borderRadius: '8px',
   },
   img: {
@@ -174,5 +224,9 @@ const skills = [
   {
     name: 'Nodemailer',
     logo: NodemailerLogo,
+  },
+  {
+    name: 'GSAP',
+    logo: GSAPLogo,
   },
 ]
