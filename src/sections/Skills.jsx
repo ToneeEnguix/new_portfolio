@@ -45,7 +45,7 @@ const pageStyle = {
   background: 'rgb(216,233,246)',
   background:
     'linear-gradient(90deg, rgba(216,233,246,1) 0%, rgba(216,230,246,1) 46%, rgba(208,219,244,1) 100%)',
-  padding: '0 0 10%',
+  padding: '0 0 10vh',
   '.wrapper': {
     display: 'grid',
     gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))',
@@ -56,24 +56,15 @@ const pageStyle = {
 
 const Skill = ({ name, logo, i }) => {
   function randomIntFromInterval(min, max) {
-    // min and max included
     return Math.floor(Math.random() * (max - min + 1) + min)
   }
 
   useLayoutEffect(() => {
     const tilt = document.querySelector(`.tilt${i}`)
     if (!tilt) return
-    //     gsap.to(tilt, {
-    //       scrollTrigger: tilt,
-    //       rotation: 360,
-    //       duration: 2,
-    //       ease: 'bounce.out',
-    //     })
     let tl = gsap.timeline({
-      // yes, we can add it to an entire timeline!
       scrollTrigger: {
         trigger: tilt,
-        // start: 'top top', // when the top of the trigger hits the top of the viewport
         end: '+=200', // end after scrolling 200px beyond the start
         scrub: 1, // smooth scrubbing, takes 1 second to "catch up" to the scrollbar
       },
@@ -114,7 +105,6 @@ const Skill = ({ name, logo, i }) => {
         className={`flexCenter tilt tilt${i}`}
         reset={true}
       >
-        {/* {name} */}
         <img src={logo} alt={name} title={name} />
       </Tilt>
       <p>{name}</p>

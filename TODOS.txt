@@ -1,8 +1,9 @@
 DOING:
-- skills
+- projects
 
 TODO:
-- style titles and apply to all
+- apply styles to all titles
 
 DONE:
+- skills
 - add font for web dev

@@ -30,10 +30,12 @@ const WebDev = () => {
   const compStyle = {
     fontFamily: "'Staatliches', sans-serif",
     padding: '20% 20% 50px',
-    fontSize: '1.5rem',
     color,
     transition: 'all 2000ms linear',
     textAlign: 'left',
+    h1: {
+      fontSize: '3rem !important',
+    },
   }
 
   return (
