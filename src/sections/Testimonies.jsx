@@ -3,8 +3,9 @@ import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 gsap.registerPlugin(ScrollTrigger)
 
-import GeorgeImg from '../assets/imgs/faces/george.jpeg'
-import JorgeImg from '../assets/imgs/faces/jorge.jpeg'
+import GeorgeImg from '../assets/imgs/faces/george.webp'
+import JorgeImg from '../assets/imgs/faces/jorge.webp'
+import AlexImg from '../assets/imgs/faces/alex.webp'
 import { useLayoutEffect } from 'react'
 
 export default function Testimonies() {
@@ -59,10 +60,13 @@ const Testimony = ({ testi, i }) => {
 
   return (
     <div css={testimonyStyle} className={`testi${i}`}>
-      <div className='titleWrapper'>
-        <h3>
-          {testi.name} — {testi.company}
-        </h3>
+      <div className='titleWrapper flexBetween'>
+        <div className='flexColumn'>
+          <h3>{testi.name}</h3>
+          <h3>
+            <i>{testi.company}</i>
+          </h3>
+        </div>
         <img src={testi.img} alt={testi.name} />
       </div>
       <p>{testi.description}</p>
@@ -78,10 +82,10 @@ const testimonyStyle = {
   lineHeight: '1.5rem',
   textAlign: 'justify',
   '.titleWrapper': {
-    display: 'flex',
-    justifyContent: 'space-between',
-    alignItems: 'center',
     marginBottom: '1rem',
+    '.flexColumn': {
+      alignItems: 'flex-start',
+    },
     img: {
       width: '50px',
       height: '50px',
@@ -105,5 +109,12 @@ const testimoniesInfo = [
     img: JorgeImg,
     description:
       'Recomiendo a Toni como un desarrollador altamente competente, con habilidades impresionantes en términos de organización, eficiencia y profesionalismo. Tuve la oportunidad de supervisar su trabajo de cerca y pude ver de primera mano su nivel de habilidad y dedicación. Es un placer trabajar con alguien que toma su trabajo tan en serio y se esfuerza constantemente por mejorar. Como supervisor, siempre me sentí confiado en su capacidad para cumplir con las tareas asignadas y superar las expectativas. Su trabajo demostró un nivel de dedicación y habilidad que seguramente lo llevará muy lejos en su carrera. Además, su atención a los detalles y su enfoque en la calidad del trabajo hacen que cualquier proyecto en el que esté involucrado sea un éxito. Estoy seguro que cualquier equipo de desarrollo se beneficiaría enormemente al tenerlo a bordo.',
+  },
+  {
+    name: 'Alex Ruiz',
+    company: 'Teana & Hifi Noise Studio',
+    img: AlexImg,
+    description:
+      'Trabaje con Toni para llevar a cabo 2 webs. En las 2 ocasiones la experiencia fue inmejorable! Uno de los puntos fuertes de Toni es la atención, todas las respuestas son muy rápidas y atentas. Hace que el desarrollo del trabajo sea mucho mas fluido y asi las ideas flujan mejor. Por otro lado las ideas aportadas por su parte siempre son buenas, buen gusto!.',
   },
 ]

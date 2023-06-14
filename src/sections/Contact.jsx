@@ -1,7 +1,16 @@
 /** @jsxImportSource @emotion/react */
 
 export default function Contact() {
-  return <div css={pageStyle}>Contact</div>
+  return (
+    <div css={pageStyle}>
+      <h1 className='title'>Contact</h1>
+      <form>
+        <input type='text' placeholder='Full Name' />
+        <input type='text' placeholder='your@email.com' />
+        <textarea placeholder='I loved your portfolio, Toni, and wanted to offer you the best job ever'></textarea>
+      </form>
+    </div>
+  )
 }
 
 const pageStyle = {

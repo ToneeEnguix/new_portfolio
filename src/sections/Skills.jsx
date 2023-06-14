@@ -57,12 +57,14 @@ const Skill = ({ name, logo, i }) => {
       x: randomIntFromInterval(-300, 300),
       scale: 0.6,
       rotation: 30,
+      duration: 10,
     }).to(tilt, {
       y: 0,
       scale: 1,
       x: 0,
       opacity: 1,
       rotation: 0,
+      duration: 10,
     })
 
     return () => {

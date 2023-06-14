@@ -1,9 +1,18 @@
 DOING:
-- projects
 
 TODO:
-- apply styles to all titles
+- responsiveness
+  - facepaint
+  - add breakpoints ( mobile 1st! )
+  - sections:
+    - skills
+    - projects
+    - testimonies
+    - experiences
 
 DONE:
+- experience
+- apply styles to all titles
+- projects
 - skills
 - add font for web dev
