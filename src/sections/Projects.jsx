@@ -1,11 +1,15 @@
 /** @jsxImportSource @emotion/react */
+import { useLayoutEffect } from 'react'
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+gsap.registerPlugin(ScrollTrigger)
 
 import ElSorrallImage from '../assets/imgs/projects/elsorrall.webp'
 import XLRStudioImage2 from '../assets/imgs/projects/xlr2.webp'
 import TeanaBandImage from '../assets/imgs/projects/teana.webp'
 import HiFiNoiseStudioImage from '../assets/imgs/projects/hifi.webp'
 
-import { skills } from '../data/skills'
+// import { skills } from '../data/skills'
 
 export default function Projects() {
   return (
@@ -13,7 +17,7 @@ export default function Projects() {
       <h1 className='title'>Projects</h1>
       <div className='wrapper'>
         {projectsInfo.map((project, i) => {
-          return <Project key={i} proj={project} />
+          return <Project key={i} proj={project} i={i} />
         })}
       </div>
     </div>
@@ -29,9 +33,36 @@ const pageStyle = {
   },
 }
 
-const Project = ({ proj }) => {
+const Project = ({ proj, i }) => {
+  useLayoutEffect(() => {
+    const project = document.querySelector(`.project${i}`)
+    if (!project) return
+    let tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: project,
+        end: '+=200', // end after scrolling 200px beyond the start
+        scrub: 1.5, // smooth scrubbing, takes 1 second to "catch up" to the scrollbar
+      },
+    })
+
+    // add animations and labels to the timeline
+    tl.from(project, {
+      opacity: 0,
+      y: 200,
+      scale: 0.8,
+    }).to(project, {
+      y: 0,
+      scale: 1,
+      opacity: 1,
+    })
+
+    return () => {
+      tl.revert()
+    }
+  }, [])
+
   return (
-    <div css={projectStyle}>
+    <div css={projectStyle} className={`project${i}`}>
       <a href={proj.link} target='_blank' rel='noopener noreferrer'>
         <h3 className='pointer'>{proj.title}</h3>
         <img className='pointer' src={proj.image} alt={proj.title} />

@@ -1,7 +1,11 @@
 /** @jsxImportSource @emotion/react */
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+gsap.registerPlugin(ScrollTrigger)
 
 import GeorgeImg from '../assets/imgs/faces/george.jpeg'
 import JorgeImg from '../assets/imgs/faces/jorge.jpeg'
+import { useLayoutEffect } from 'react'
 
 export default function Testimonies() {
   return (
@@ -9,7 +13,7 @@ export default function Testimonies() {
       <h1 className='title'>Testimonies</h1>
       <div className='wrapper'>
         {testimoniesInfo.map((testi, i) => {
-          return <Testimony testi={testi} key={i} />
+          return <Testimony testi={testi} key={i} i={i} />
         })}
       </div>
     </div>
@@ -27,9 +31,34 @@ const pageStyle = {
   },
 }
 
-const Testimony = ({ testi }) => {
+const Testimony = ({ testi, i }) => {
+  useLayoutEffect(() => {
+    const testi = document.querySelector(`.testi${i}`)
+    if (!testi) return
+    let tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: testi,
+        end: '+=300', // end after scrolling 200px beyond the start
+        scrub: 2, // smooth scrubbing, takes 1 second to "catch up" to the scrollbar
+      },
+    })
+
+    // add animations and labels to the timeline
+    tl.from(testi, {
+      opacity: 0,
+      x: i % 2 === 0 ? -200 : 200,
+    }).to(testi, {
+      x: 0,
+      opacity: 1,
+    })
+
+    return () => {
+      tl.revert()
+    }
+  }, [])
+
   return (
-    <div css={testimonyStyle}>
+    <div css={testimonyStyle} className={`testi${i}`}>
       <div className='titleWrapper'>
         <h3>
           {testi.name} — {testi.company}
