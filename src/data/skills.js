@@ -1,5 +1,5 @@
-import JavaScriptLogo from '../assets/imgs/logos/javascript.png'
 import ReactLogo from '../assets/imgs/logos/react.png'
+import JavaScriptLogo from '../assets/imgs/logos/javascript.png'
 import NodeJSLogo from '../assets/imgs/logos/node.svg'
 import ExpressLogo from '../assets/imgs/logos/express.png'
 import MongoDBLogo from '../assets/imgs/logos/mongo.png'
