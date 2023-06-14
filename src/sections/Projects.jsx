@@ -71,11 +71,12 @@ const projectsInfo = [
   {
     title: 'El Sorrall',
     image: ElSorrallImage,
-    description: '',
+    description:
+      'This website was made as an exercise, the purpose of which was to better forge the alliance between Elisa and myself as a team. It was the first approach we did and we learnt a lot, from how to treat assets like images or fonts to how to better communicate each ones needs.',
     design: 'Elisa Alcaide',
     designerLink: 'https://www.linkedin.com/in/ealcaidest/',
     link: 'https://elsorrall.netlify.app',
-    techUsed: [{ name: '' }],
+    techUsed: [''],
   },
   {
     title: 'XLR Studio',
