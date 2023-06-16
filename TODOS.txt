@@ -1,6 +1,14 @@
 DOING:
+- contact
+   - send button
+   - input width
 
 TODO:
+- shorten testimonies
+- bolds in experience
+- re-think landing page
+- add education?
+- animations skills mobile
 - responsiveness
   - facepaint
   - add breakpoints ( mobile 1st! )
@@ -11,6 +19,7 @@ TODO:
     - experiences
 
 DONE:
+- animation testimonies
 - experience
 - apply styles to all titles
 - projects

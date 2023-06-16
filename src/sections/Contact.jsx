@@ -7,7 +7,7 @@ export default function Contact() {
       <form>
         <input type='text' placeholder='Full Name' />
         <input type='email' placeholder='your@email.com' />
-        <textarea placeholder='I loved your portfolio, Toni, and wanted to offer you the best job ever'></textarea>
+        <textarea placeholder='Hey Toni, I loved your portfolio and wanted to offer you the best job ever'></textarea>
       </form>
     </div>
   )
