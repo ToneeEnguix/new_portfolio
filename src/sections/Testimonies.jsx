@@ -39,18 +39,20 @@ const Testimony = ({ testi, i }) => {
     let tl = gsap.timeline({
       scrollTrigger: {
         trigger: testi,
-        end: '+=300', // end after scrolling 200px beyond the start
-        scrub: 2, // smooth scrubbing, takes 1 second to "catch up" to the scrollbar
+        end: '+=250', // end after scrolling 200px beyond the start
+        scrub: 4, // smooth scrubbing, takes 1 second to "catch up" to the scrollbar
       },
     })
-
+    // tl.duration(2)
     // add animations and labels to the timeline
     tl.from(testi, {
       opacity: 0,
-      x: i % 2 === 0 ? -200 : 200,
+      x: i % 2 === 0 ? -200 : 100,
+      width: '0px',
     }).to(testi, {
-      x: 0,
       opacity: 1,
+      x: 0,
+      width: '100%',
     })
 
     return () => {
@@ -75,6 +77,7 @@ const Testimony = ({ testi, i }) => {
 }
 
 const testimonyStyle = {
+  position: 'relative',
   backgroundColor: '#fffdfd59',
   borderRadius: '16px',
   marginBottom: '2rem',
