@@ -3,11 +3,13 @@ DOING:
    - send button
    - input width
 
+NEW TODOS: 
+- re-think landing page
+
 TODO:
 - translations
 - shorten testimonies
 - bolds in experience
-- re-think landing page
 - add education?
 - animations skills mobile
 - responsiveness
@@ -18,6 +20,9 @@ TODO:
     - projects
     - testimonies
     - experiences
+
+EXTRAS:
+  - progress line on bottom?
 
 DONE:
 - animation testimonies
