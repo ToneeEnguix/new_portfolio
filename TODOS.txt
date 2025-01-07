@@ -4,6 +4,7 @@ DOING:
    - input width
 
 TODO:
+- translations
 - shorten testimonies
 - bolds in experience
 - re-think landing page
