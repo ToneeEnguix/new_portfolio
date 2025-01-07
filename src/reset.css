@@ -48,3 +48,73 @@ a {
   color: inherit;
   text-decoration: none;
 }
+
+/* FONTS */
+@font-face {
+  font-family: "Mixal";
+  src: url("./assets/fonts/mixal-fontfamily/Mixal-Heavy.otf") format("truetype");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap; /* Ensures text is visible while the font loads */
+}
+@font-face {
+  font-family: "Mixal";
+  src: url("./assets/fonts/mixal-fontfamily/Mixal-UltraBold.otf")
+    format("truetype");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap; /* Ensures text is visible while the font loads */
+}
+@font-face {
+  font-family: "Mixal";
+  src: url("./assets/fonts/mixal-fontfamily/Mixal-Bold.otf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap; /* Ensures text is visible while the font loads */
+}
+@font-face {
+  font-family: "Mixal";
+  src: url("./assets/fonts/mixal-fontfamily/Mixal-DemiBold.otf")
+    format("truetype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap; /* Ensures text is visible while the font loads */
+}
+@font-face {
+  font-family: "Mixal";
+  src: url("./assets/fonts/mixal-fontfamily/Mixal-Medium.otf")
+    format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap; /* Ensures text is visible while the font loads */
+}
+@font-face {
+  font-family: "Mixal";
+  src: url("./assets/fonts/mixal-fontfamily/Mixal-Regular.otf")
+    format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap; /* Ensures text is visible while the font loads */
+}
+@font-face {
+  font-family: "Mixal";
+  src: url("./assets/fonts/mixal-fontfamily/Mixal-Light.otf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap; /* Ensures text is visible while the font loads */
+}
+@font-face {
+  font-family: "Mixal";
+  src: url("./assets/fonts/mixal-fontfamily/Mixal-ExtraLight.otf")
+    format("truetype");
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap; /* Ensures text is visible while the font loads */
+}
+@font-face {
+  font-family: "Mixal";
+  src: url("./assets/fonts/mixal-fontfamily/Mixal-Hair.otf") format("truetype");
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap; /* Ensures text is visible while the font loads */
+}

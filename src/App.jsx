@@ -21,10 +21,11 @@ export default function App() {
 }
 
 const bodyStyle = {
-  // display: "flex",
-  // flexDirection: "column",
-  // margin: "0 auto",
   "> *": {
-    padding: "2rem calc(100vw - 1600px)",
+    padding: "2rem max(calc(100vw - 1600px), 3rem)",
+  },
+  h1: {
+    fontFamily: "Mixal, sans-serif",
+    fontWeight: 900,
   },
 };
